@@ -78,7 +78,7 @@ const CTA: React.FC = () => {
           strokeLinejoin="round"
         />
       </svg>
-      <h1 className="text-white font-manrope text-4xl text-center mb-5 leading-[52px] tracking-[-0.48px]">
+      <h1 className="text-white font-manrope lg:text-4xl text-2xl text-center mb-5 lg:leading-[52px] leading-[40px] tracking-[-0.48px]">
         Johu AI has no limitation.
         <br />
         Get Started in a journey with promptverse.

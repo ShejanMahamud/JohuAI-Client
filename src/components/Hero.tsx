@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { HeroHeaderText } from "./HeroHeaderText";
 import BlurIn from "./ui/blur-in";
@@ -10,7 +11,13 @@ const Hero: React.FC = () => {
     "Write a Javascript method to reverse a string",
     "How to assemble your own PC?",
   ];
-
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
   return (
     <div
       className={`w-full h-auto font-poppins relative`}
@@ -76,7 +83,7 @@ const Hero: React.FC = () => {
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="top-20 absolute left-96"
+        className="top-20 absolute lg:left-96 left-72"
         width="29"
         height="28"
         viewBox="0 0 29 28"
@@ -242,7 +249,11 @@ const Hero: React.FC = () => {
           </p>
         </div>
         <div className="flex items-center justify-center gap-5 w-full">
-          <PlaceholdersAndVanishInput placeholders={placeholders} />
+          <PlaceholdersAndVanishInput
+            onChange={handleChange}
+            onSubmit={onSubmit}
+            placeholders={placeholders}
+          />
           {/* <Button className="text-white border border-white rounded-full p-6">
             <span>Start Generating</span>
             <FaWandMagicSparkles className="text-white" />

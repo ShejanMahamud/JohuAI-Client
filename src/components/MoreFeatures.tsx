@@ -4,8 +4,8 @@ import React from "react";
 import HyperText from "./ui/hyper-text";
 const MoreFeatures: React.FC = () => {
   return (
-    <div className="w-full my-28 px-20">
-      <h1 className="text-[#ffffff80] font-manrope text-5xl tracking-[-1.165px] leading-[64px]">
+    <div className="w-full my-28 lg:px-20 px-10">
+      <h1 className="text-[#ffffff80] font-manrope lg:text-5xl text-3xl tracking-[-1.165px] lg:leading-[64px]">
         More features <br />
         <HyperText text="Johu AI" className="text-white" /> offers to an
         individual

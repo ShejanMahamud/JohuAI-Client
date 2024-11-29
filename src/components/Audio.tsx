@@ -12,7 +12,7 @@ const Audio: React.FC = () => {
         paragraph="Discover endless creativity with PromptVerse. Generate diverse content effortlessly using prompts. Stay updated with real-time trends, automate tasks, and extract insights from any document or URL. All within a sleek, futuristic design. Create more, effortlessly."
         boxStyles="my-20"
       />
-      <div className="w-full px-20 grid grid-cols-2 row-auto items-center justify-center gap-10">
+      <div className="w-full lg:px-20 px-10 grid lg:grid-cols-2 grid-cols-1 row-auto items-center justify-center gap-10">
         <div className="w-full flex flex-col items-start gap-y-5 text-white">
           <h1 className="font-manrope text-3xl">
             Enhance Your Projects with Ultra-Realistic AI Voices

@@ -12,13 +12,13 @@ export default function Home() {
     <>
       <Hero />
       <Features />
-      <WhyWe />
       <TrendingTools />
       <Images />
       <Audio />
       <MoreFeatures />
       {/* <CTA2 /> */}
       {/* <Connectivity /> */}
+      <WhyWe />
       <CTA />
     </>
   );
