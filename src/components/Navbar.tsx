@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState } from "react";
+import PrimaryButton from "./PrimaryButton";
 import { Button } from "./ui/button";
 import SparklesText from "./ui/sparkles-text";
 
@@ -107,9 +108,7 @@ const Navbar: React.FC = () => {
                 {item.name}
               </Link>
             ))}
-            <Button className="rounded-full bg-white text-black hover:text-white hover:border hover:border-white py-2 border font-medium transition-all duration-300 ease-in-out">
-              Get Started
-            </Button>
+            <PrimaryButton text="Get Started" buttonStyles="px-8" />
           </motion.div>
         )}
       </AnimatePresence>

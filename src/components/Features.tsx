@@ -10,21 +10,17 @@ import {
   FaPen,
   FaTable,
 } from "react-icons/fa";
+import HeadingText from "./HeadingText";
 
 export function Features() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full my-10">
-        <h1 className="text-white text-4xl text-center leading-[52px] mb-2 font-medium">
-          Features of Johu AI
-        </h1>
-        <p className="text-[#ffffff99] text-sm text-center font-manrope w-[60%] tracking-[-0.288px]">
-          Discover endless creativity with PromptVerse. Generate diverse content
-          effortlessly using prompts. Stay updated with real-time trends,
-          automate tasks, and extract insights from any document or URL. All
-          within a sleek, futuristic design. Create more, effortlessly.
-        </p>
-      </div>
+      <HeadingText
+        heading="Packed with thousands of features"
+        paragraph="Discover endless creativity with PromptVerse. Generate diverse content effortlessly using prompts. Stay updated with real-time trends, automate tasks, and extract insights from any document or URL. All within a sleek, futuristic design. Create more, effortlessly."
+        boxStyles="my-10"
+        paragraphStyles=""
+      />
       <BentoGrid className="w-[80%] mx-auto md:auto-rows-[20rem]">
         {items.map((item, i) => (
           <BentoGridItem
