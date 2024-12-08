@@ -1,6 +1,7 @@
 import Audio from "@/components/Audio";
 import CTA from "@/components/CTA";
 import { Features } from "@/components/Features";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Images from "@/components/Images";
 import MoreFeatures from "@/components/MoreFeatures";
@@ -20,6 +21,7 @@ export default function Home() {
       {/* <Connectivity /> */}
       <WhyWe />
       <CTA />
+      <Footer />
     </>
   );
 }
