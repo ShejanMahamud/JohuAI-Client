@@ -8,6 +8,7 @@ const Audio: React.FC = () => {
   return (
     <div className="w-full">
       <HeadingText
+        headingStyles="font-manrope"
         heading="Generate audio and music"
         paragraph="Discover endless creativity with PromptVerse. Generate diverse content effortlessly using prompts. Stay updated with real-time trends, automate tasks, and extract insights from any document or URL. All within a sleek, futuristic design. Create more, effortlessly."
         boxStyles="my-20"
@@ -34,25 +35,28 @@ const Audio: React.FC = () => {
           <div className="w-full flex items-center flex-wrap gap-x-5 gap-y-4">
             <SecondaryButton
               text="Train voice model"
-              buttonStyles="px-6 text-sm"
+              buttonStyles="px-6 lg:text-sm text-xs"
             />
             <SecondaryButton
               text="Text-to-speech"
-              buttonStyles="px-6 text-sm"
+              buttonStyles="px-6 lg:text-sm text-xs"
             />
             <SecondaryButton
               text="AI voice generation"
-              buttonStyles="px-6 text-sm"
+              buttonStyles="px-6 lg:text-sm text-xs"
             />
             <SecondaryButton
               text="AI music production"
-              buttonStyles="px-6 text-sm"
+              buttonStyles="px-6 lg:text-sm text-xs"
             />
             <SecondaryButton
               text="AI Composition"
-              buttonStyles="px-6 text-sm"
+              buttonStyles="px-6 lg:text-sm text-xs"
             />
-            <PrimaryButton text="Generate now" buttonStyles="px-6 text-sm" />
+            <PrimaryButton
+              text="Generate now"
+              buttonStyles="px-6 lg:text-sm text-xs"
+            />
           </div>
         </div>
         <div className="w-full h-full flex items-center justify-center">

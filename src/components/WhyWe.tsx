@@ -17,6 +17,7 @@ const WhyWe: React.FC = () => {
     <div className="w-full my-28">
       <HeadingText
         heading="Why Johu AI?"
+        headingStyles="font-manrope"
         paragraph="Discover endless creativity with PromptVerse. Generate diverse content effortlessly using prompts. Stay updated with real-time trends, automate tasks, and extract insights from any document or URL. All within a sleek, futuristic design. Create more, effortlessly."
       />
       <FeaturesSection />

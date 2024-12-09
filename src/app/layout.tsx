@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Manrope, Poppins } from "next/font/google";
 import "./globals.css";
@@ -31,9 +30,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${manrope.variable} antialiased bg-black`}
       >
-        <Navbar />
         {children}
-        {/* <Footer /> */}
       </body>
     </html>
   );

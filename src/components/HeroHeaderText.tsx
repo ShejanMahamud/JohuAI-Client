@@ -1,8 +1,10 @@
+"use client";
+
 import AnimatedShinyText from "@/components/ui/animated-shiny-text";
 import { cn } from "@/lib/utils";
 import { LuArrowRight } from "react-icons/lu";
 
-export async function HeroHeaderText() {
+export function HeroHeaderText() {
   return (
     <div className="z-10 flex mb-3 items-center justify-center">
       <div

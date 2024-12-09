@@ -83,9 +83,11 @@ const Navbar: React.FC = () => {
             {item.name}
           </Link>
         ))}
-        <Button className="rounded-full bg-white text-black hover:text-white hover:border hover:border-white py-2 border font-medium transition-all duration-300 ease-in-out">
-          Get Started
-        </Button>
+        <Link href={"/auth/signup"}>
+          <Button className="rounded-full bg-white text-black hover:text-white hover:border hover:border-white py-2 border font-medium transition-all duration-300 ease-in-out">
+            Get Started
+          </Button>
+        </Link>
       </div>
 
       {/* Mobile Menu with Framer Motion Animation */}

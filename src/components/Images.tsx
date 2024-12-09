@@ -10,6 +10,7 @@ const Images: React.FC = () => {
   return (
     <div className="w-full pb-10">
       <HeadingText
+        headingStyles="font-manrope"
         heading="Images like never seen before"
         paragraph="Discover endless creativity with PromptVerse. Generate diverse content
           effortlessly using prompts. Stay updated with real-time trends,

@@ -13,3 +13,20 @@
 .font-manrope {
   font-family: var(--font-manrope);
 }
+
+@keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-border {
+  animation: move-gradient 5s linear infinite;
+  background-size: 400% 400%;
+}

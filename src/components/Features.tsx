@@ -1,4 +1,5 @@
 "use client";
+
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -11,17 +12,19 @@ import {
   FaTable,
 } from "react-icons/fa";
 import HeadingText from "./HeadingText";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 export function Features() {
   return (
     <>
       <HeadingText
+        headingStyles="font-manrope"
         heading="Packed with thousands of features"
         paragraph="Discover endless creativity with PromptVerse. Generate diverse content effortlessly using prompts. Stay updated with real-time trends, automate tasks, and extract insights from any document or URL. All within a sleek, futuristic design. Create more, effortlessly."
         boxStyles="my-10"
         paragraphStyles=""
       />
-      <BentoGrid className="w-[80%] mx-auto md:auto-rows-[20rem]">
+      <BentoGrid className="w-[80%] mx-auto md:auto-rows-[20rem] font-manrope">
         {items.map((item, i) => (
           <BentoGridItem
             key={i}
@@ -67,32 +70,45 @@ const SkeletonOne = () => {
     <motion.div
       initial="initial"
       whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2 font-manrope"
     >
       <motion.div
         variants={variants}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-white dark:bg-black"
       >
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+        <Image
+          width={24}
+          height={24}
+          src={"/logo.png"}
+          alt="johuai-logo.png"
+          className="border border-white rounded-full"
+        />
+        <h1 className="text-neutral-500 text-xs">{`I'm content generation bot. How can i help you?`}</h1>
       </motion.div>
       <motion.div
         variants={variantsSecond}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
       >
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+        <h1 className="text-neutral-500 text-xs">{`Give me a article about Node.JS`}</h1>
         <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
       </motion.div>
       <motion.div
         variants={variants}
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-white dark:bg-black"
       >
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-        <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
+        <Image
+          width={24}
+          height={24}
+          src={"/logo.png"}
+          alt="johuai-logo.png"
+          className="border border-white rounded-full"
+        />
+        <h1 className="text-neutral-500 text-xs">{`Node is a powerful single threaded js runtime...`}</h1>
       </motion.div>
     </motion.div>
   );
 };
+
 const SkeletonTwo = () => {
   const variants = {
     initial: {
@@ -111,7 +127,8 @@ const SkeletonTwo = () => {
       },
     },
   };
-  const arr = new Array(6).fill(0);
+
+  const arr = [40, 50, 60, 70, 80, 90]; // Predefined widths
   return (
     <motion.div
       initial="initial"
@@ -119,19 +136,18 @@ const SkeletonTwo = () => {
       whileHover="hover"
       className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
     >
-      {arr.map((_, i) => (
+      {arr.map((width, i) => (
         <motion.div
-          key={"skelenton-two" + i}
+          key={`skeleton-two-${i}`}
+          style={{ maxWidth: `${width}%` }}
           variants={variants}
-          style={{
-            maxWidth: Math.random() * (100 - 40) + 40 + "%",
-          }}
-          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
+          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
         ></motion.div>
       ))}
     </motion.div>
   );
 };
+
 const SkeletonThree = () => {
   const variants = {
     initial: {
@@ -143,23 +159,25 @@ const SkeletonThree = () => {
   };
   return (
     <motion.div
-      initial="initial"
-      animate="animate"
       variants={variants}
-      transition={{
-        duration: 5,
-        repeat: Infinity,
-        repeatType: "reverse",
-      }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
-      style={{
-        background:
-          "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
-        backgroundSize: "400% 400%",
-        borderRadius: "1rem",
-      }}
+      className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] bg-white dark:bg-black items-start space-x-2 p-3"
     >
-      <motion.div className="h-full w-full rounded-lg"></motion.div>
+      <Image
+        width={24}
+        height={24}
+        src={"/logo.png"}
+        alt="johuai-logo.png"
+        className="border border-white rounded-full"
+      />
+      <TextGenerateEffect
+        textStyles="text-neutral-500 text-xs font-normal "
+        className="-mt-5 text-neutral-500"
+        duration={2}
+        filter={false}
+        words={
+          "Contextual suggestions empower you to elevate your writing by providing precise, AI-powered recommendations tailored to your unique needs. From refining grammar and tone to generating fresh ideas and enhancing readability, these insights ensure your content is engaging, impactful, and perfectly aligned with its purpose."
+        }
+      />
     </motion.div>
   );
 };
@@ -195,13 +213,7 @@ const SkeletonFour = () => {
         variants={first}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
-        <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
+        <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
           Just code in Vanilla Javascript
         </p>
@@ -210,13 +222,7 @@ const SkeletonFour = () => {
         </p>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
-        <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
+        <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
           Tailwind CSS is cool, you know
         </p>
@@ -228,13 +234,7 @@ const SkeletonFour = () => {
         variants={second}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
-        <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
+        <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
           I love angular, RSC, and Redux.
         </p>
@@ -281,13 +281,7 @@ const SkeletonFive = () => {
         variants={variants}
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
-        <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        />
+        <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
         <p className="text-xs text-neutral-500">
           There are a lot of cool framerworks out there like React, Angular,
           Vue, Svelte that can make your life ....
@@ -298,7 +292,13 @@ const SkeletonFive = () => {
         className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
       >
         <p className="text-xs text-neutral-500">Use PHP.</p>
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
+        <Image
+          width={24}
+          height={24}
+          src={"/logo.png"}
+          alt="johuai-logo.png"
+          className="border border-white rounded-full"
+        />
       </motion.div>
     </motion.div>
   );
@@ -316,10 +316,10 @@ const items = [
     icon: <FaClipboard className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Automated Proofreading",
+    title: "Code Generator",
     description: (
       <span className="text-sm">
-        Let AI handle the proofreading of your documents.
+        Generate code snippets for your projects with AI.
       </span>
     ),
     header: <SkeletonTwo />,

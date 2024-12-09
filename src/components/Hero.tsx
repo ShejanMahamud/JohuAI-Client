@@ -1,8 +1,13 @@
+/* eslint-disable react/no-children-prop */
 "use client";
+
+import { motion } from "framer-motion";
 import React from "react";
 import { HeroHeaderText } from "./HeroHeaderText";
 import BlurIn from "./ui/blur-in";
+import { Cover } from "./ui/cover";
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
+
 const Hero: React.FC = () => {
   const placeholders = [
     "What's the first rule of Fight Club?",
@@ -27,40 +32,19 @@ const Hero: React.FC = () => {
         backgroundPosition: "bottom",
       }}
     >
-      <svg
-        className="absolute top-5 left-5"
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-      >
-        <g clipPath="url(#clip0_1_7271)">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M9.05557 0.829712C8.69623 -0.156779 7.30181 -0.156779 6.94246 0.829712L5.31187 5.31242L0.829162 6.94301C-0.157328 7.30235 -0.157328 8.69677 0.829162 9.05612L5.31187 10.6867L6.94246 15.1694C7.30181 16.1559 8.69623 16.1559 9.05557 15.1694L10.6862 10.6867L15.1689 9.05612C16.1554 8.69677 16.1554 7.30235 15.1689 6.94301L10.6862 5.31242L9.05557 0.829712Z"
-            fill="#CCCCCC"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_7271">
-            <rect
-              width="15.82"
-              height="15.82"
-              fill="white"
-              transform="translate(0.0890503 0.0893555)"
-            />
-          </clipPath>
-        </defs>
-      </svg>
-      <svg
+      <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
         className="absolute top-10 right-40"
         height="14"
         viewBox="0 0 15 14"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7275)">
           <path
@@ -80,14 +64,20 @@ const Hero: React.FC = () => {
             />
           </clipPath>
         </defs>
-      </svg>
-      <svg
+      </motion.svg>
+      <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         className="top-20 absolute lg:left-96 left-72"
         width="29"
         height="28"
         viewBox="0 0 29 28"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7269)">
           <path
@@ -107,14 +97,20 @@ const Hero: React.FC = () => {
             />
           </clipPath>
         </defs>
-      </svg>
-      <svg
+      </motion.svg>
+      <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         className="absolute top-64 left-52"
         width="14"
         height="15"
         viewBox="0 0 14 15"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7263)">
           <path
@@ -134,14 +130,20 @@ const Hero: React.FC = () => {
             />
           </clipPath>
         </defs>
-      </svg>
-      <svg
+      </motion.svg>
+      <motion.svg
         className="absolute left-5 bottom-28"
         xmlns="http://www.w3.org/2000/svg"
         width="22"
         height="22"
         viewBox="0 0 22 22"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7265)">
           <path
@@ -161,14 +163,20 @@ const Hero: React.FC = () => {
             />
           </clipPath>
         </defs>
-      </svg>
-      <svg
+      </motion.svg>
+      <motion.svg
         className="absolute right-10 top-52"
         xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"
         viewBox="0 0 28 28"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7273)">
           <path
@@ -183,14 +191,20 @@ const Hero: React.FC = () => {
             <rect width="28" height="28" fill="white" />
           </clipPath>
         </defs>
-      </svg>
-      <svg
+      </motion.svg>
+      <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         className="absolute right-20 bottom-20"
         width="14"
         height="14"
         viewBox="0 0 14 14"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7277)">
           <path
@@ -205,14 +219,20 @@ const Hero: React.FC = () => {
             <rect width="14" height="14" fill="white" />
           </clipPath>
         </defs>
-      </svg>
-      <svg
+      </motion.svg>
+      <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         className="absolute left-1/2 transform -translate-x-1/2 right-0 bottom-0"
         width="56"
         height="24"
         viewBox="0 0 56 24"
         fill="none"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 1.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <g clipPath="url(#clip0_1_7267)">
           <path
@@ -227,7 +247,7 @@ const Hero: React.FC = () => {
             <rect width="56" height="56" fill="white" />
           </clipPath>
         </defs>
-      </svg>
+      </motion.svg>
       <div className="w-full flex flex-col items-center justify-center py-40 gap-y-10">
         <div className=" flex flex-col items-center justify-center w-full">
           <HeroHeaderText />
@@ -236,7 +256,7 @@ const Hero: React.FC = () => {
               <h1 className="text-white lg:text-5xl text-3xl text-center lg:leading-[60px] mb-7">
                 Find Inspiration.
                 <br /> Create, Generate,
-                <br /> Produce & Automate.
+                <br /> Produce & <Cover children={<h1>Automate</h1>} />
               </h1>
             }
           />
@@ -248,7 +268,7 @@ const Hero: React.FC = () => {
             boosts productivity.
           </p>
         </div>
-        <div className="flex items-center justify-center gap-5 w-full">
+        <div className="flex items-center justify-center gap-5 w-[90%] lg:w-full">
           <PlaceholdersAndVanishInput
             onChange={handleChange}
             onSubmit={onSubmit}
