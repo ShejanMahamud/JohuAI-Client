@@ -1,6 +1,6 @@
 "use client";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { FormInput as Input } from "@/components/ui/form-input";
+import { FormLabel as Label } from "@/components/ui/form-label";
 import { cn } from "@/lib/utils";
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import Image from "next/image";

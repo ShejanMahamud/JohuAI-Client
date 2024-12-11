@@ -20,8 +20,11 @@ const TrendingTools = () => {
           }
         />
         <PrimaryButton
+          link={true}
+          textStyles="text-sm"
+          linkPath="/auth/signup"
           text="Get Started"
-          buttonStyles="px-6 py-2 lg:text-sm text-xs"
+          buttonStyles="px-8"
         />
       </div>
       <Image

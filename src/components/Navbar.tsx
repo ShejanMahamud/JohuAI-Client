@@ -1,12 +1,14 @@
 "use client";
+import useAccessToken from "@/hooks/useAccessToken";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState } from "react";
 import PrimaryButton from "./PrimaryButton";
-import { Button } from "./ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import SparklesText from "./ui/sparkles-text";
-
 const Navbar: React.FC = () => {
+  const user = useAccessToken();
+  console.log(user);
   const leftMenu = [
     { name: "About", href: "/about" },
     { name: "Products", href: "/products" },
@@ -20,7 +22,6 @@ const Navbar: React.FC = () => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <nav className="w-full flex items-center justify-between p-6 border-b border-b-[#ffffff33]">
       <div className="w-full flex items-center justify-between md:gap-5 z-50">
@@ -83,11 +84,20 @@ const Navbar: React.FC = () => {
             {item.name}
           </Link>
         ))}
-        <Link href={"/auth/signup"}>
-          <Button className="rounded-full bg-white text-black hover:text-white hover:border hover:border-white py-2 border font-medium transition-all duration-300 ease-in-out">
-            Get Started
-          </Button>
-        </Link>
+        {user ? (
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        ) : (
+          <PrimaryButton
+            link={true}
+            textStyles="text-sm"
+            linkPath="/auth/signup"
+            text="Get Started"
+            buttonStyles="px-6"
+          />
+        )}
       </div>
 
       {/* Mobile Menu with Framer Motion Animation */}
@@ -110,7 +120,13 @@ const Navbar: React.FC = () => {
                 {item.name}
               </Link>
             ))}
-            <PrimaryButton text="Get Started" buttonStyles="px-8" />
+            <PrimaryButton
+              link={true}
+              textStyles="text-sm"
+              linkPath="/auth/signup"
+              text="Get Started"
+              buttonStyles="px-8"
+            />
           </motion.div>
         )}
       </AnimatePresence>

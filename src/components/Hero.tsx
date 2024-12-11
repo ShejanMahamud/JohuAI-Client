@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
-        className="absolute top-10 right-40"
+        className="absolute top-10 lg:right-40 left-5"
         height="14"
         viewBox="0 0 15 14"
         fill="none"
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
       </motion.svg>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
-        className="top-20 absolute lg:left-96 left-72"
+        className="top-20 absolute lg:left-[1200px] left-72"
         width="29"
         height="28"
         viewBox="0 0 29 28"
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
       </motion.svg>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute top-64 left-52"
+        className="absolute top-64 lg:left-52 left-5"
         width="14"
         height="15"
         viewBox="0 0 14 15"
@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
         </defs>
       </motion.svg>
       <motion.svg
-        className="absolute right-10 top-52"
+        className="lg:absolute hidden lg:right-10 right-5 top-52"
         xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"

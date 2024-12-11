@@ -6,9 +6,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="w-full grid grid-cols-2 row-auto items-center">
+    <section className="w-full grid lg:grid-cols-2 grid-cols-1 row-auto items-center">
       {children}
-      <div className=" w-full h-full bg-[#171717] flex flex-col space-y-2 items-center justify-center">
+      <div className="hidden w-full h-full bg-[#171717] lg:flex flex-col space-y-2 items-center justify-center">
         <AuthLayoutSidebar />
       </div>
     </section>

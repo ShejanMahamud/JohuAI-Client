@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Manrope, Poppins } from "next/font/google";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${manrope.variable} antialiased bg-black`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
