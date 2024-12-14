@@ -1,14 +1,76 @@
 "use client";
-import useAccessToken from "@/hooks/useAccessToken";
+import { useAuthStore } from "@/app/stores/authStore";
+import {
+  IconCheck,
+  IconDashboard,
+  IconError404,
+  IconLogout,
+  IconSettings,
+  IconUser,
+} from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import PrimaryButton from "./PrimaryButton";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+
+import { useToast } from "@/hooks/use-toast";
+import { logOut } from "@/lib/postLogout";
+import { MenubarSeparator } from "@radix-ui/react-menubar";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "./ui/menubar";
 import SparklesText from "./ui/sparkles-text";
+import { ToastAction } from "./ui/toast";
 const Navbar: React.FC = () => {
-  const user = useAccessToken();
-  console.log(user);
+  const { user, loading, setUser } = useAuthStore();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const { toast } = useToast();
+
+  const handleLogout = async () => {
+    try {
+      const res = await logOut();
+      if (res.success) {
+        setUser(null);
+        toast({
+          title: "Logout Successfully",
+          description: (
+            <div className="flex items-center space-x-2">
+              <IconCheck className="w-5 h-5 text-green-500" />
+              <span>{res.message}</span>
+            </div>
+          ),
+          variant: "default",
+          action: (
+            <ToastAction altText="Redirecting">
+              <Link href="/auth/signin">Redirecting...</Link>
+            </ToastAction>
+          ),
+        });
+        return setTimeout(() => {
+          router.push("/auth/signin");
+        }, 5000);
+      }
+    } catch (error) {
+      return toast({
+        title: "Something Went Wrong",
+        description: (
+          <div className="flex items-center space-x-2">
+            <IconError404 className="w-5 h-5 text-green-500" />
+            <span>{(error as Error).message}</span>
+          </div>
+        ),
+        variant: "default",
+      });
+    }
+  };
+
   const leftMenu = [
     { name: "About", href: "/about" },
     { name: "Products", href: "/products" },
@@ -21,7 +83,6 @@ const Navbar: React.FC = () => {
     { name: "Buy Premium", href: "/buy-premium" },
   ];
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <nav className="w-full flex items-center justify-between p-6 border-b border-b-[#ffffff33]">
       <div className="w-full flex items-center justify-between md:gap-5 z-50">
@@ -84,11 +145,53 @@ const Navbar: React.FC = () => {
             {item.name}
           </Link>
         ))}
-        {user ? (
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+        {loading ? (
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-white"></div>
+        ) : user ? (
+          <Menubar className="border-none">
+            <MenubarMenu>
+              <MenubarTrigger>
+                <Avatar>
+                  <AvatarImage src={user?.profile_picture} />
+                  <AvatarFallback>
+                    <span>{user?.name[0]}</span>
+                  </AvatarFallback>
+                </Avatar>
+              </MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem
+                  onClick={() => router.push("/dashboard")}
+                  className="font-manrope py-3"
+                >
+                  <IconDashboard className="mr-2 h-5 w-5" />
+                  Dashboard
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem
+                  className="font-manrope py-3"
+                  onClick={() => router.push("/profile")}
+                >
+                  <IconUser className="mr-2 h-5 w-5" />
+                  Profile
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem
+                  className="font-manrope py-3"
+                  onClick={() => router.push("/settings")}
+                >
+                  <IconSettings className="mr-2 h-5 w-5" />
+                  Settings
+                </MenubarItem>
+                <MenubarItem
+                  className="text-red-500 hover:bg-red-100 font-manrope py-3"
+                  onClick={handleLogout}
+                >
+                  <IconLogout className="mr-2 h-5 w-5" />
+                  Logout
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
         ) : (
           <PrimaryButton
             link={true}

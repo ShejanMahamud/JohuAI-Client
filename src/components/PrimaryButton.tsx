@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+import { useRouter } from "next/navigation";
+import { ReactNode } from "react";
 
 const PrimaryButton = ({
   buttonStyles,
@@ -6,22 +8,28 @@ const PrimaryButton = ({
   textStyles,
   link,
   linkPath = "/",
+  icon,
 }: {
   buttonStyles?: string;
   text: string;
   textStyles?: string;
   link?: boolean;
   linkPath?: string;
+  icon?: ReactNode;
 }) => {
+  const router = useRouter();
   return (
     <>
       {link && (
         <button
-          className={`rounded-full bg-white hover:bg-transparent text-black hover:text-white hover:border hover:border-white py-2 border font-medium transition-all duration-300 ease-in-out ${buttonStyles}`}
+          onClick={() => router.push(linkPath)}
+          className={`${buttonStyles} rounded-full bg-white hover:bg-transparent text-black ${
+            icon && "flex items-center gap-2"
+          } hover:text-white hover:border hover:border-white py-2 border font-medium
+             transition-all duration-300 ease-in-out`}
         >
-          <Link href={linkPath} className={`${textStyles}`}>
-            {text}
-          </Link>
+          {icon}
+          <span className={`${textStyles}`}>{text}</span>
         </button>
       )}
       {!link && (

@@ -47,7 +47,7 @@ const people = [
 ];
 export function AuthLayoutSidebar() {
   return (
-    <div className="h-[40rem] w-full rounded-md bg-[#171717] relative flex flex-col items-center justify-center antialiased">
+    <div className="h-full w-full rounded-md bg-[#171717] relative flex flex-col items-center justify-center antialiased">
       <div className="w-full flex items-center gap-2 justify-center relative z-50">
         <AnimatedTooltip items={people} />
       </div>

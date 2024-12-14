@@ -1,3 +1,4 @@
+import AuthInitializer from "@/components/AuthInitializer";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import { Manrope, Poppins } from "next/font/google";
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${manrope.variable} antialiased bg-black`}
       >
+        <AuthInitializer />
         {children}
         <Toaster />
       </body>

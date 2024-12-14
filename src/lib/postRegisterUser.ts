@@ -7,7 +7,7 @@ interface RegisterUserInput {
 
 export const registerUser = async (input: RegisterUserInput) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/register`,
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/v1/api/auth/register`,
     {
       method: "POST",
       headers: {

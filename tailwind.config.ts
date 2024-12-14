@@ -78,12 +78,17 @@ export default {
         "shiny-text": "shiny-text 8s infinite",
         marquee: "marquee var(--duration) infinite linear",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
       keyframes: {
         "border-beam": {
           "100%": {
             "offset-distance": "100%",
           },
+        },
+        "caret-blink": {
+          "0%,70%,100%": { opacity: "1" },
+          "20%,50%": { opacity: "0" },
         },
         "shiny-text": {
           "0%, 90%, 100%": {
