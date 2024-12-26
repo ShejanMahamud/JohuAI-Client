@@ -6,6 +6,7 @@ import {
   Frame,
   LifeBuoy,
   Map,
+  MessageCircle,
   PieChart,
   Send,
   Settings2,
@@ -56,17 +57,24 @@ const data = {
       ],
     },
     {
-      title: "Models",
-      url: "#",
+      title: "Ai Assistant",
+      url: "/chat",
+      icon: MessageCircle,
+    },
+    {
+      title: "Tools",
+      isActive: true,
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Sketch To Image",
+          url: "/dashboard/tool/sketch-to-image",
+          icon: Frame,
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Object Remover",
+          url: "/dashboard/tool/object-remover",
+          icon: PieChart,
         },
         {
           title: "Quantum",

@@ -1,4 +1,4 @@
-export const verifyEmail = async (email: string, otp: string) => {
+export const verifyOtp = async (email: string, otp: string) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/v1/api/auth/verify-otp`,
     {

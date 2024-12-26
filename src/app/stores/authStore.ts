@@ -11,6 +11,7 @@ interface IUser {
   status: "active" | "inactive";
   wordUsed: number;
   refreshToken: string;
+  _id: string;
 }
 
 interface AuthState {

@@ -4,7 +4,7 @@ import { FormInput as Input } from "@/components/ui/form-input";
 import { FormLabel as Label } from "@/components/ui/form-label";
 import { useToast } from "@/hooks/use-toast";
 import { registerUser } from "@/lib/postRegisterUser";
-import { verifyEmail } from "@/lib/postVerifyEmail";
+import { verifyOtp } from "@/lib/postVerifyOtp";
 import { cn } from "@/lib/utils";
 import { ToastAction } from "@radix-ui/react-toast";
 import {
@@ -90,7 +90,7 @@ const SignupForm = () => {
 
   const handleOTPVerification = async () => {
     try {
-      const res = await verifyEmail(email, otp);
+      const res = await verifyOtp(email, otp);
       if (res.success) {
         toast({
           title: "Your email has been verified",

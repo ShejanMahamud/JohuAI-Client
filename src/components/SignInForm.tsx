@@ -11,22 +11,19 @@ import {
   IconError404,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { ToastAction } from "./ui/toast";
 
 const SignInForm = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { toast } = useToast();
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const res = await signInUser({ email, password });
       if (res.success) {
-        toast({
+        return toast({
           title: "Logged in successfully",
           description: (
             <div className="flex items-center space-x-2">
@@ -35,15 +32,7 @@ const SignInForm = () => {
             </div>
           ),
           variant: "default",
-          action: (
-            <ToastAction altText="Redirecting">
-              <Link href="/dashboard">Redirecting...</Link>
-            </ToastAction>
-          ),
         });
-        return setTimeout(() => {
-          router.push("/dashboard");
-        }, 5000);
       } else {
         return toast({
           title: "Something Went Wrong",

@@ -2,12 +2,14 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 // 1. Define the base path for protected routes
-const protectedBasePath = "/dashboard";
+const protectedBasePath = ["/dashboard", "/chat"];
 const authPages = ["/auth/signin", "/auth/signup"];
 export default async function middleware(req: NextRequest) {
   // 2. Check if the current route is under the protected base path
   const path = req.nextUrl.pathname;
-  const isProtectedRoute = path.startsWith(protectedBasePath);
+  const isProtectedRoute = protectedBasePath.some((protectedPath) =>
+    path.startsWith(protectedPath)
+  );
   const isAuthPage = authPages.includes(path);
   // 3. Decrypt the session from the cookie
   const accessToken = (await cookies()).get("accessToken")?.value;
